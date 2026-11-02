@@ -4,10 +4,12 @@ import Services from "@/components/Services/Services";
 import About from "@/components/About/About";
 import Gallery from "@/components/Gallery/Gallery";
 import Contact from "@/components/Contact/Contact";
+import Navbar from "@/components/Navbar/Navbar";
 
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
 
       <GeneratorShowcase />
