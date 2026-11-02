@@ -54,18 +54,21 @@ export const metadata = {
 
   openGraph: {
     title: "Sultan Brothers Power Engineering | Generator Sales & Repair",
+
     description:
-      "Generator sales, diesel engine repair, complete overhauling, maintenance and spare parts support.",
-    url: "https://sultan-power.vercel.app",
+      "Explore new diesel generators, professional generator repairs, complete engine overhauling, maintenance and spare parts at Sultan Brothers Power Engineering.",
+
+    url: "https://sultan-power.vercel.app/",
     siteName: "Sultan Brothers Power Engineering",
     locale: "en_PK",
     type: "website",
+
     images: [
       {
-        url: "/images/generator-hero.webp",
-        width: 1600,
-        height: 1200,
-        alt: "Industrial diesel generator at Sultan Brothers Power Engineering",
+        url: "/images/sultan-brothers-logo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sultan Brothers Power Engineering - Generator Sales and Diesel Engine Repair",
       },
     ],
   },
@@ -74,8 +77,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Sultan Brothers Power Engineering | Generator Sales & Repair",
     description:
-      "Diesel generator sales, repairs, engine overhauling and maintenance.",
-    images: ["/images/generator-hero.jpg"],
+      "New generator sales, diesel engine repair, complete overhauling, maintenance and spare parts.",
+    images: ["/images/sultan-brothers-logo.webp"],
   },
 
   robots: {
