@@ -49,14 +49,14 @@ export default function Navbar() {
   };
 
   return (
-    <header className="site-header">
-      {/* QURANIC VERSE TOP BAR */}
+    <>
+      {/* QURANIC WELCOME BANNER - SCROLLS AWAY */}
 
       <div className="topbar">
         <div className="nav-container topbar-inner">
           <div className="topbar-verse">
             <span className="topbar-verse-icon">
-              <Zap size={15} />
+              <Zap size={17} />
             </span>
 
             <div className="topbar-verse-content">
@@ -72,215 +72,208 @@ export default function Navbar() {
               <span className="topbar-reference">سورۃ البقرہ • آیت 152</span>
             </div>
           </div>
-
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="topbar-quote-link"
-          >
-            <MessageCircle size={14} />
-            Get a Quick Quote
-            <ArrowUpRight size={13} />
-          </a>
         </div>
       </div>
 
-      {/* MAIN NAVIGATION */}
+      {/* STICKY MAIN NAVIGATION */}
 
-      <nav className="navbar">
-        <div className="nav-container navbar-inner">
-          {/* LOGO */}
+      <header className="site-header">
+        <nav className="navbar">
+          <div className="nav-container navbar-inner">
+            {/* LOGO */}
 
-          <Link
-            href="/#home"
-            className="brand"
-            onClick={closeMenu}
-            aria-label="Sultan Brothers homepage"
-          >
-            <span className="brand-icon">
-              <Zap size={27} fill="currentColor" />
-            </span>
-
-            <span className="brand-text">
-              <strong>SULTAN BROTHERS</strong>
-              <small>POWER ENGINEERING</small>
-            </span>
-          </Link>
-
-          {/* DESKTOP NAVIGATION */}
-
-          <div className="desktop-nav">
-            {navigation.slice(0, 2).map((item) => (
-              <Link key={item.name} href={item.href} className="nav-link">
-                {item.name}
-              </Link>
-            ))}
-
-            {/* GENERATOR DROPDOWN */}
-
-            <div className="nav-dropdown">
-              <Link
-                href="/generators"
-                className="nav-link nav-dropdown-trigger"
-                aria-label="Explore generator brands"
-              >
-                Generators
-                <ChevronDown size={14} />
-              </Link>
-
-              <div className="nav-dropdown-menu">
-                {generatorLinks.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="nav-dropdown-item"
-                  >
-                    {item.name}
-                    <ArrowUpRight size={14} />
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {navigation.slice(2).map((item) => (
-              <Link key={item.name} href={item.href} className="nav-link">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* WHATSAPP BUTTON */}
-
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-cta"
-          >
-            <MessageCircle size={18} />
-            <span>WhatsApp Us</span>
-          </a>
-
-          {/* MOBILE MENU BUTTON */}
-
-          <button
-            className="mobile-menu-btn"
-            onClick={() => {
-              setIsOpen((previous) => !previous);
-              setGeneratorsOpen(false);
-            }}
-            aria-label={
-              isOpen ? "Close navigation menu" : "Open navigation menu"
-            }
-            aria-expanded={isOpen}
-            aria-controls="mobile-navigation"
-          >
-            {isOpen ? <X size={27} /> : <Menu size={27} />}
-          </button>
-        </div>
-
-        {/* MOBILE NAVIGATION */}
-
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              id="mobile-navigation"
-              className="mobile-nav"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
+            <Link
+              href="/#home"
+              className="brand"
+              onClick={closeMenu}
+              aria-label="Sultan Brothers homepage"
             >
-              {navigation.slice(0, 2).map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.04 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="mobile-nav-link"
-                    onClick={closeMenu}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+              <span className="brand-icon">
+                <Zap size={27} fill="currentColor" />
+              </span>
+
+              <span className="brand-text">
+                <strong>SULTAN BROTHERS</strong>
+                <small>POWER ENGINEERING</small>
+              </span>
+            </Link>
+
+            {/* DESKTOP NAVIGATION */}
+
+            <div className="desktop-nav">
+              {navigation.slice(0, 2).map((item) => (
+                <Link key={item.name} href={item.href} className="nav-link">
+                  {item.name}
+                </Link>
               ))}
 
-              {/* MOBILE GENERATOR DROPDOWN */}
+              {/* GENERATOR DROPDOWN */}
 
-              <div className="mobile-generator-dropdown">
-                <button
-                  className="mobile-nav-link mobile-generator-trigger"
-                  onClick={() => setGeneratorsOpen((previous) => !previous)}
-                  aria-expanded={generatorsOpen}
+              <div className="nav-dropdown">
+                <Link
+                  href="/generators"
+                  className="nav-link nav-dropdown-trigger"
+                  aria-label="Explore generator brands"
                 >
                   Generators
-                  <ChevronDown
-                    size={17}
-                    className={generatorsOpen ? "mobile-chevron-open" : ""}
-                  />
-                </button>
+                  <ChevronDown size={14} />
+                </Link>
 
-                <AnimatePresence>
-                  {generatorsOpen && (
-                    <motion.div
-                      className="mobile-generator-menu"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
+                <div className="nav-dropdown-menu">
+                  {generatorLinks.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="nav-dropdown-item"
                     >
-                      {generatorLinks.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="mobile-generator-link"
-                          onClick={closeMenu}
-                        >
-                          {item.name}
-                          <ArrowUpRight size={14} />
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {item.name}
+                      <ArrowUpRight size={14} />
+                    </Link>
+                  ))}
+                </div>
               </div>
 
-              {navigation.slice(2).map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (index + 2) * 0.04 }}
-                >
-                  <Link
-                    href={item.href}
-                    className="mobile-nav-link"
-                    onClick={closeMenu}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+              {navigation.slice(2).map((item) => (
+                <Link key={item.name} href={item.href} className="nav-link">
+                  {item.name}
+                </Link>
               ))}
+            </div>
 
-              {/* MOBILE WHATSAPP */}
+            {/* DESKTOP WHATSAPP */}
 
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mobile-whatsapp"
-                onClick={closeMenu}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-cta"
+            >
+              <MessageCircle size={18} />
+              <span>WhatsApp Us</span>
+            </a>
+
+            {/* MOBILE MENU BUTTON */}
+
+            <button
+              type="button"
+              className="mobile-menu-btn"
+              onClick={() => {
+                setIsOpen((previous) => !previous);
+                setGeneratorsOpen(false);
+              }}
+              aria-label={
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+              }
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+            >
+              {isOpen ? <X size={27} /> : <Menu size={27} />}
+            </button>
+          </div>
+
+          {/* MOBILE NAVIGATION */}
+
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                id="mobile-navigation"
+                className="mobile-nav"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.25 }}
               >
-                <MessageCircle size={19} />
-                Contact on WhatsApp
-              </a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </header>
+                {navigation.slice(0, 2).map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.04 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="mobile-nav-link"
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* MOBILE GENERATOR DROPDOWN */}
+
+                <div className="mobile-generator-dropdown">
+                  <button
+                    type="button"
+                    className="mobile-nav-link mobile-generator-trigger"
+                    onClick={() => setGeneratorsOpen((previous) => !previous)}
+                    aria-expanded={generatorsOpen}
+                  >
+                    Generators
+                    <ChevronDown
+                      size={17}
+                      className={generatorsOpen ? "mobile-chevron-open" : ""}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {generatorsOpen && (
+                      <motion.div
+                        className="mobile-generator-menu"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                      >
+                        {generatorLinks.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="mobile-generator-link"
+                            onClick={closeMenu}
+                          >
+                            {item.name}
+                            <ArrowUpRight size={14} />
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {navigation.slice(2).map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (index + 2) * 0.04 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="mobile-nav-link"
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* MOBILE WHATSAPP */}
+
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mobile-whatsapp"
+                  onClick={closeMenu}
+                >
+                  <MessageCircle size={19} />
+                  Contact on WhatsApp
+                </a>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </nav>
+      </header>
+    </>
   );
 }
