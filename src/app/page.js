@@ -3,6 +3,7 @@ import GeneratorShowcase from "@/components/GeneratorShowcase/GeneratorShowcase"
 import Services from "@/components/Services/Services";
 import About from "@/components/About/About";
 import Gallery from "@/components/Gallery/Gallery";
+
 export default function Home() {
   return (
     <main>
