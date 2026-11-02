@@ -1,0 +1,120 @@
+/* =====================================
+   GLOBAL FONT
+===================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =====================================
+   DESIGN SYSTEM
+===================================== */
+
+:root {
+  --primary: #10243a;
+  --primary-light: #183c60;
+  --accent: #f2a900;
+  --accent-hover: #ffc12c;
+
+  --white: #ffffff;
+  --text: #172334;
+  --muted: #687586;
+
+  --border: #e8edf2;
+  --background: #ffffff;
+  --background-light: #f5f7fa;
+
+  --container-width: 1240px;
+}
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* =====================================
+   GLOBAL CONTAINER
+===================================== */
+
+.container {
+  width: min(var(--container-width), calc(100% - 64px));
+  margin-inline: auto;
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
