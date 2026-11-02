@@ -14,9 +14,7 @@ export default function Home() {
 
       <About />
 
-      <section id="gallery">
-        <h2>Our Gallery</h2>
-      </section>
+      <Gallery />
 
       <section id="contact">
         <h2>Contact Us</h2>
