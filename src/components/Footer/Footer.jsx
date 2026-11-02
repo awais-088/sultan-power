@@ -1,6 +1,7 @@
 import "./Footer.css";
+import Image from "next/image";
 
-import { ArrowUpRight, MapPin, MessageCircle, Phone, Zap } from "lucide-react";
+import { ArrowUpRight, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const WHATSAPP_NUMBER = "923010002987";
 const PHONE_NUMBER = "03010002987";
@@ -34,15 +35,19 @@ export default function Footer() {
         <div className="footer-container footer-grid">
           {/* COMPANY */}
           <div className="footer-brand">
-            <a href="/#home" className="footer-logo">
-              <span className="footer-logo-icon">
-                <Zap size={25} fill="currentColor" />
-              </span>
-
-              <span>
-                <strong>SULTAN BROTHERS</strong>
-                <small>POWER ENGINEERING</small>
-              </span>
+            <a
+              href="/#home"
+              className="footer-logo"
+              aria-label="Sultan Brothers Power Engineering homepage"
+            >
+              <Image
+                src="/images/sultan-brothers-logo.webp"
+                alt="Sultan Brothers Power Engineering"
+                width={700}
+                height={180}
+                className="footer-logo-image"
+                sizes="(max-width: 600px) 85vw, 380px"
+              />
             </a>
 
             <p className="footer-description">

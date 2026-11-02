@@ -19,45 +19,37 @@
   gap: 48px;
 }
 
-/* BRAND */
+/* BRAND LOGO */
 
 .footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: #ffffff;
+  width: fit-content;
+  max-width: 100%;
+  padding: 9px 12px;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 9px;
   text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.footer-logo-icon {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  color: #d6a84f;
-  background: rgba(214, 168, 79, 0.12);
-  border: 1px solid rgba(214, 168, 79, 0.3);
-  border-radius: 12px;
+.footer-logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.footer-logo strong,
-.footer-logo small {
+.footer-logo-image {
   display: block;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  object-fit: contain;
 }
 
-.footer-logo strong {
-  font-size: 16px;
-  letter-spacing: 1.1px;
-  font-weight: 800;
-}
-
-.footer-logo small {
-  margin-top: 4px;
-  color: #d6a84f;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2.2px;
-}
+/* DESCRIPTION */
 
 .footer-description {
   max-width: 330px;
@@ -66,6 +58,8 @@
   font-size: 14px;
   line-height: 1.9;
 }
+
+/* WHATSAPP BUTTON */
 
 .footer-whatsapp {
   display: inline-flex;
@@ -189,7 +183,7 @@
   color: #ffffff;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 
 @media (max-width: 950px) {
   .footer-grid {
@@ -197,6 +191,8 @@
     gap: 42px;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
   .footer-main {
@@ -214,6 +210,15 @@
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+
+  .footer-logo {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .footer-logo-image {
+    max-width: 100%;
   }
 
   .footer-description {
@@ -251,5 +256,17 @@
 
   .footer-brand {
     grid-column: auto;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-logo,
+  .footer-whatsapp,
+  .footer-column li a,
+  .footer-contact > a,
+  .footer-developer a {
+    transition: none;
   }
 }
