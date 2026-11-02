@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-
+import Hero from "@/components/Hero/Hero";
 export const metadata = {
   title: {
     default: "Sultan Brothers Power Engineering",

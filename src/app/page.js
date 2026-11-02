@@ -1,32 +1,27 @@
-import Hero from "@/components/Hero";
+import Hero from "@/components/Hero/Hero";
+import GeneratorShowcase from "@/components/GeneratorShowcase/GeneratorShowcase";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <GeneratorShowcase />
 
-      {[
-        ["about", "About Sultan Brothers"],
-        ["generators", "Our Generators"],
-        ["services", "Our Services"],
-        ["gallery", "Our Gallery"],
-        ["contact", "Contact Us"],
-      ].map(([id, title]) => (
-        <section
-          key={id}
-          id={id}
-          style={{
-            minHeight: "300px",
-            padding: "90px 20px",
-            textAlign: "center",
-          }}
-        >
-          <h2>{title}</h2>
-          <p style={{ marginTop: "15px", color: "#687586" }}>
-            This section will be developed in the next stages.
-          </p>
-        </section>
-      ))}
+      <section id="about">
+        <h2>About Sultan Brothers</h2>
+      </section>
+
+      <section id="services">
+        <h2>Our Services</h2>
+      </section>
+
+      <section id="gallery">
+        <h2>Our Gallery</h2>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+      </section>
     </main>
   );
 }
