@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero/Hero";
 import GeneratorShowcase from "@/components/GeneratorShowcase/GeneratorShowcase";
 import Services from "@/components/Services/Services";
+import About from "@/components/About/About";
 
 export default function Home() {
   return (
@@ -11,9 +12,7 @@ export default function Home() {
 
       <Services />
 
-      <section id="about">
-        <h2>About Sultan Brothers</h2>
-      </section>
+      <About />
 
       <section id="gallery">
         <h2>Our Gallery</h2>
