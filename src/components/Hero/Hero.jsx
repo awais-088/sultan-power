@@ -12,7 +12,7 @@ import {
   Settings,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "923010002987";
 
 export default function Hero() {
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(

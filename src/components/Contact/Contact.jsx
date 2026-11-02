@@ -18,7 +18,7 @@ import {
 
 // Replace with your Mamu's actual WhatsApp business number.
 // Include country code, without + or spaces.
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "923010002987";
 
 const MAPS_URL =
   "https://www.google.com/maps/place/Sultan+brothers+power+engineering+repairing+and+parts/@30.966625,71.0647534,151m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3925a916b4749c93:0x10ccabdcb0296dda!8m2!3d30.966625!4d71.0653971";
@@ -71,7 +71,7 @@ export default function Contact() {
       return;
     }
 
-    if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "923001234567") {
+    if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "923010002987") {
       setError(
         "Please configure the real Sultan Brothers WhatsApp number before accepting enquiries.",
       );

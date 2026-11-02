@@ -15,7 +15,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923001234567"; // Replace before launch
+const WHATSAPP_NUMBER = "923010002987"; // Replace before launch
 
 const navigation = [
   { name: "Home", href: "/#home" },

@@ -16,7 +16,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "923010002987";
 
 const highlights = [
   {

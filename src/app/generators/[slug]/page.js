@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { MessageCircle, ArrowLeft, CheckCircle } from "lucide-react";
 import { generators } from "@/data/generators";
 import "./generator-detail.css";
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "923010002987";
 
 export function generateStaticParams() {
   return generators.map((item) => ({
