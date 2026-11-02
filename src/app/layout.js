@@ -1,6 +1,6 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
-
+import Footer from "@/components/Footer/Footer";
 export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://sultan-power.vercel.app",
@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,255 @@
+.site-footer {
+  background: #071525;
+  color: #d5deea;
+  font-family: inherit;
+}
+
+.footer-main {
+  padding: 75px 0 65px;
+}
+
+.footer-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr 1.1fr 1fr;
+  gap: 48px;
+}
+
+/* BRAND */
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #d6a84f;
+  background: rgba(214, 168, 79, 0.12);
+  border: 1px solid rgba(214, 168, 79, 0.3);
+  border-radius: 12px;
+}
+
+.footer-logo strong,
+.footer-logo small {
+  display: block;
+}
+
+.footer-logo strong {
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  font-weight: 800;
+}
+
+.footer-logo small {
+  margin-top: 4px;
+  color: #d6a84f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+}
+
+.footer-description {
+  max-width: 330px;
+  margin: 22px 0;
+  color: #a8b5c5;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.footer-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 16px;
+  border: 1px solid rgba(214, 168, 79, 0.45);
+  border-radius: 7px;
+  color: #e4bd70;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.footer-whatsapp:hover {
+  color: #071525;
+  background: #d6a84f;
+}
+
+/* COLUMNS */
+
+.footer-column h3 {
+  margin: 7px 0 24px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.footer-column ul {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-column li a {
+  color: #a8b5c5;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-column li a:hover {
+  color: #d6a84f;
+}
+
+/* CONTACT */
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.footer-contact h3 {
+  margin-bottom: 7px;
+}
+
+.footer-contact > a {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: #a8b5c5;
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact > a svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #d6a84f;
+}
+
+.footer-contact > a:hover {
+  color: #d6a84f;
+}
+
+/* BOTTOM BAR */
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-inner {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #8493a6;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-developer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-developer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #e2b65f;
+  font-weight: 750;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-developer a:hover {
+  color: #ffffff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 55px 0 42px;
+  }
+
+  .footer-container {
+    width: min(100% - 36px, 480px);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 22px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .footer-column ul {
+    gap: 12px;
+  }
+
+  .footer-column li a,
+  .footer-contact > a {
+    font-size: 12px;
+  }
+
+  .footer-bottom-inner {
+    min-height: auto;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+}

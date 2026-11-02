@@ -16,13 +16,16 @@ import {
   Wrench,
 } from "lucide-react";
 
-// Replace with your Mamu's actual WhatsApp business number.
-// Include country code, without + or spaces.
+// Sultan Brothers official WhatsApp number
 const WHATSAPP_NUMBER = "923010002987";
+const PHONE_NUMBER = "03010002987";
 
-const MAPS_URL =
-  "https://www.google.com/maps/place/Sultan+brothers+power+engineering+repairing+and+parts/@30.966625,71.0647534,151m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3925a916b4749c93:0x10ccabdcb0296dda!8m2!3d30.966625!4d71.0653971";
+// Opens Google Maps navigation with the business as destination.
+// Google Maps will use the customer's current location as the starting point.
+const MAPS_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=30.966625%2C71.0653971&travelmode=driving";
 
+// Embedded map showing the business location
 const MAP_EMBED_URL =
   "https://www.google.com/maps?q=30.966625,71.0653971&z=16&output=embed";
 
@@ -71,13 +74,6 @@ export default function Contact() {
       return;
     }
 
-    if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "923010002987") {
-      setError(
-        "Please configure the real Sultan Brothers WhatsApp number before accepting enquiries.",
-      );
-      return;
-    }
-
     const message = `
 Assalam-o-Alaikum Sultan Brothers!
 
@@ -94,7 +90,9 @@ ${formData.message || "Please contact me for further details."}
 Thank you.
     `.trim();
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      message,
+    )}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
@@ -151,6 +149,8 @@ Thank you.
             </div>
 
             <div className="contact-info-list">
+              {/* WHATSAPP */}
+
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
@@ -163,14 +163,31 @@ Thank you.
 
                 <span>
                   <small>WHATSAPP ENQUIRIES</small>
-                  <strong>Chat with Sultan Brothers</strong>
+                  <strong>0301 0002987</strong>
                 </span>
 
                 <ArrowUpRight size={17} />
               </a>
 
+              {/* PHONE */}
+
+              <a href={`tel:${PHONE_NUMBER}`} className="contact-info-item">
+                <span className="contact-info-icon">
+                  <MapPin size={21} />
+                </span>
+
+                <span>
+                  <small>CALL OUR BUSINESS</small>
+                  <strong>{PHONE_NUMBER}</strong>
+                </span>
+
+                <ArrowUpRight size={17} />
+              </a>
+
+              {/* GOOGLE MAPS DIRECTIONS */}
+
               <a
-                href={MAPS_URL}
+                href={MAPS_DIRECTIONS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-info-item"
@@ -181,11 +198,13 @@ Thank you.
 
                 <span>
                   <small>OUR LOCATION</small>
-                  <strong>Visit Our Workshop</strong>
+                  <strong>Get Directions to Our Workshop</strong>
                 </span>
 
                 <ArrowUpRight size={17} />
               </a>
+
+              {/* SPECIALITY */}
 
               <div className="contact-info-item">
                 <span className="contact-info-icon">
@@ -347,19 +366,21 @@ Thank you.
             <div>
               <span>FIND US</span>
               <h3>Visit Sultan Brothers</h3>
+
               <p>
-                Find our business location and get directions through Google
+                Find our workshop and get driving directions through Google
                 Maps.
               </p>
             </div>
 
             <a
-              href={MAPS_URL}
+              href={MAPS_DIRECTIONS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="map-directions-btn"
             >
-              Get Directions
+              <MapPin size={18} />
+              Get Driving Directions
               <ArrowUpRight size={18} />
             </a>
           </div>
