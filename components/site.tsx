@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -60,7 +60,7 @@ const services = [
   },
 ];
 const brands = ["CUMMINS", "PERKINS", "ISUZU", "YANGDONG"];
-const rise = {
+const rise: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
