@@ -3,6 +3,7 @@ import GeneratorShowcase from "@/components/GeneratorShowcase/GeneratorShowcase"
 import Services from "@/components/Services/Services";
 import About from "@/components/About/About";
 import Gallery from "@/components/Gallery/Gallery";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -17,9 +18,7 @@ export default function Home() {
 
       <Gallery />
 
-      <section id="contact">
-        <h2>Contact Us</h2>
-      </section>
+      <Contact />
     </main>
   );
 }
