@@ -1,33 +1,72 @@
 "use client";
+
 import "./Navbar.css";
+
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, Zap, MessageCircle, ChevronDown } from "lucide-react";
+
+import {
+  Menu,
+  X,
+  Zap,
+  MessageCircle,
+  ChevronDown,
+  ArrowUpRight,
+} from "lucide-react";
+
+const WHATSAPP_NUMBER = "923001234567"; // Replace before launch
 
 const navigation = [
-  { name: "Home", href: "#home" },
-  { name: "About Us", href: "#about" },
-  { name: "Generators", href: "#generators", dropdown: true },
-  { name: "Services", href: "#services" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About Us", href: "/#about" },
+  { name: "Services", href: "/#services" },
+  { name: "Gallery", href: "/#gallery" },
+  { name: "Contact", href: "/#contact" },
 ];
 
-const WHATSAPP_NUMBER = "923001234567"; // Replace with real number
+const generatorLinks = [
+  {
+    name: "All Generators",
+    href: "/generators",
+  },
+  {
+    name: "Cummins",
+    href: "/generators/cummins-generators",
+  },
+  {
+    name: "Perkins",
+    href: "/generators/perkins-generators",
+  },
+  {
+    name: "Isuzu",
+    href: "/generators/isuzu-generators",
+  },
+  {
+    name: "Yangdong",
+    href: "/generators/yangdong-generators",
+  },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [generatorsOpen, setGeneratorsOpen] = useState(false);
 
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  const whatsappMessage = encodeURIComponent(
     "Assalam-o-Alaikum! I would like to inquire about your generators and repair services.",
-  )}`;
+  );
 
-  const closeMenu = () => setIsOpen(false);
+  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setGeneratorsOpen(false);
+  };
 
   return (
     <header className="site-header">
-      {/* Top information bar */}
+      {/* TOP INFORMATION BAR */}
+
       <div className="topbar">
         <div className="nav-container topbar-inner">
           <p>
@@ -42,11 +81,18 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main navigation */}
+      {/* MAIN NAVIGATION */}
+
       <nav className="navbar">
         <div className="nav-container navbar-inner">
-          {/* Brand logo */}
-          <Link href="#home" className="brand" onClick={closeMenu}>
+          {/* LOGO */}
+
+          <Link
+            href="/#home"
+            className="brand"
+            onClick={closeMenu}
+            aria-label="Sultan Brothers homepage"
+          >
             <span className="brand-icon">
               <Zap size={27} fill="currentColor" />
             </span>
@@ -57,17 +103,50 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop navigation */}
+          {/* DESKTOP NAVIGATION */}
+
           <div className="desktop-nav">
-            {navigation.map((item) => (
+            {navigation.slice(0, 2).map((item) => (
               <Link key={item.name} href={item.href} className="nav-link">
                 {item.name}
-                {item.dropdown && <ChevronDown size={14} />}
+              </Link>
+            ))}
+
+            {/* GENERATOR DROPDOWN */}
+
+            <div className="nav-dropdown">
+              <Link
+                href="/generators"
+                className="nav-link nav-dropdown-trigger"
+                aria-label="Explore generator brands"
+              >
+                Generators
+                <ChevronDown size={14} />
+              </Link>
+
+              <div className="nav-dropdown-menu">
+                {generatorLinks.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="nav-dropdown-item"
+                  >
+                    {item.name}
+                    <ArrowUpRight size={14} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {navigation.slice(2).map((item) => (
+              <Link key={item.name} href={item.href} className="nav-link">
+                {item.name}
               </Link>
             ))}
           </div>
 
-          {/* Desktop WhatsApp button */}
+          {/* WHATSAPP BUTTON */}
+
           <a
             href={whatsappLink}
             target="_blank"
@@ -78,35 +157,42 @@ export default function Navbar() {
             <span>WhatsApp Us</span>
           </a>
 
-          {/* Mobile menu button */}
+          {/* MOBILE MENU BUTTON */}
+
           <button
             className="mobile-menu-btn"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen((previous) => !previous);
+              setGeneratorsOpen(false);
+            }}
             aria-label={
               isOpen ? "Close navigation menu" : "Open navigation menu"
             }
             aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={27} /> : <Menu size={27} />}
           </button>
         </div>
 
-        {/* Mobile navigation */}
+        {/* MOBILE NAVIGATION */}
+
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              id="mobile-navigation"
               className="mobile-nav"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
             >
-              {navigation.map((item, index) => (
+              {navigation.slice(0, 2).map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, x: -15 }}
+                  initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: index * 0.04 }}
                 >
                   <Link
                     href={item.href}
@@ -114,10 +200,67 @@ export default function Navbar() {
                     onClick={closeMenu}
                   >
                     {item.name}
-                    {item.dropdown && <ChevronDown size={15} />}
                   </Link>
                 </motion.div>
               ))}
+
+              {/* MOBILE GENERATOR DROPDOWN */}
+
+              <div className="mobile-generator-dropdown">
+                <button
+                  className="mobile-nav-link mobile-generator-trigger"
+                  onClick={() => setGeneratorsOpen((previous) => !previous)}
+                  aria-expanded={generatorsOpen}
+                >
+                  Generators
+                  <ChevronDown
+                    size={17}
+                    className={generatorsOpen ? "mobile-chevron-open" : ""}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {generatorsOpen && (
+                    <motion.div
+                      className="mobile-generator-menu"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                    >
+                      {generatorLinks.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="mobile-generator-link"
+                          onClick={closeMenu}
+                        >
+                          {item.name}
+                          <ArrowUpRight size={14} />
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {navigation.slice(2).map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (index + 2) * 0.04 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="mobile-nav-link"
+                    onClick={closeMenu}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* MOBILE WHATSAPP */}
 
               <a
                 href={whatsappLink}

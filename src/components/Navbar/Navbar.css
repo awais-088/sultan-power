@@ -311,3 +311,147 @@
     letter-spacing: 1.5px;
   }
 }
+
+/* =====================================
+   DESKTOP GENERATOR DROPDOWN
+===================================== */
+
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 86px;
+}
+
+.nav-dropdown-trigger {
+  height: 100%;
+}
+
+.nav-dropdown-trigger svg {
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-trigger svg,
+.nav-dropdown:focus-within .nav-dropdown-trigger svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% - 5px);
+  left: -15px;
+  width: 225px;
+  padding: 9px;
+  background: #ffffff;
+  border: 1px solid #e8edf2;
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(16, 36, 58, 0.13);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-dropdown-item {
+  min-height: 42px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  color: #364558;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown-item svg {
+  color: #a77900;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: #f5f7fa;
+  color: #b78300;
+}
+
+.nav-dropdown-item:hover svg {
+  opacity: 1;
+}
+
+/* =====================================
+   MOBILE GENERATOR DROPDOWN
+===================================== */
+
+.mobile-generator-dropdown {
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-generator-trigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.mobile-generator-trigger svg {
+  transition: transform 0.25s ease;
+}
+
+.mobile-chevron-open {
+  transform: rotate(180deg);
+}
+
+.mobile-generator-menu {
+  overflow: hidden;
+  padding: 0 0 10px 15px;
+}
+
+.mobile-generator-link {
+  min-height: 42px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #687586;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.mobile-generator-link:hover {
+  color: #b78300;
+}
+
+/* =====================================
+   KEYBOARD ACCESSIBILITY
+===================================== */
+
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  visibility: visible;
+}
+
+@media (max-width: 850px) {
+  .nav-dropdown {
+    display: none;
+  }
+}
