@@ -1,34 +1,9 @@
+import Hero from "@/components/Hero";
+
 export default function Home() {
   return (
     <main>
-      <section
-        id="home"
-        style={{
-          minHeight: "75vh",
-          background: "#10243a",
-          color: "white",
-          display: "grid",
-          placeItems: "center",
-          textAlign: "center",
-          padding: "50px 20px",
-        }}
-      >
-        <div>
-          <p style={{ color: "#f2a900", letterSpacing: "3px" }}>
-            POWER ENGINEERING & GENERATOR SOLUTIONS
-          </p>
-
-          <h1 style={{ fontSize: "clamp(36px, 6vw, 65px)", margin: "20px 0" }}>
-            Powering Your World.
-            <br />
-            Engineering Your Trust.
-          </h1>
-
-          <p style={{ color: "#cbd5e1" }}>
-            Generator Sales, Complete Repairing & Engine Overhauling.
-          </p>
-        </div>
-      </section>
+      <Hero />
 
       {[
         ["about", "About Sultan Brothers"],
