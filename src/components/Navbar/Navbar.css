@@ -11,44 +11,100 @@
   box-shadow: 0 4px 20px rgba(16, 36, 58, 0.06);
 }
 
-/* =====================================
-   TOPBAR
-===================================== */
-
-.topbar {
-  background: var(--primary);
-  color: #ffffff;
-  font-size: 12px;
-}
-
 .nav-container {
   width: min(1240px, calc(100% - 64px));
   margin: 0 auto;
 }
 
+/* =====================================
+   QURANIC TOPBAR
+===================================== */
+
+.topbar {
+  background: var(--primary);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .topbar-inner {
-  min-height: 36px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
-.topbar-inner p,
-.topbar-inner a {
+.topbar-verse {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  min-width: 0;
 }
 
-.topbar-inner svg {
+.topbar-verse-icon {
+  flex-shrink: 0;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
   color: var(--accent);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(214, 168, 79, 0.25);
+  border-radius: 50%;
 }
 
-.topbar-inner a {
+.topbar-verse-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.topbar-arabic {
+  margin: 0;
+  color: #f4d28b;
+  font-family: "Noto Naskh Arabic", "Traditional Arabic", serif;
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: 600;
+  text-align: left;
+  direction: rtl;
+}
+
+.topbar-urdu {
+  margin: 0;
+  color: #f1f3f6;
+  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+  font-size: 12px;
+  line-height: 1.9;
+  direction: rtl;
+  text-align: left;
+}
+
+.topbar-reference {
+  color: #d6a84f;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.topbar-quote-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex-shrink: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 650;
   transition: color 0.2s ease;
 }
 
-.topbar-inner a:hover {
+.topbar-quote-link svg:first-child {
+  color: var(--accent);
+}
+
+.topbar-quote-link:hover {
   color: var(--accent);
 }
 
@@ -186,133 +242,6 @@
 }
 
 /* =====================================
-   TABLET RESPONSIVENESS
-===================================== */
-
-@media (max-width: 1050px) {
-  .desktop-nav {
-    gap: 16px;
-  }
-
-  .nav-link {
-    font-size: 12px;
-  }
-
-  .brand-text strong {
-    font-size: 16px;
-  }
-
-  .nav-cta {
-    padding: 0 13px;
-  }
-}
-
-/* =====================================
-   MOBILE RESPONSIVENESS
-===================================== */
-
-@media (max-width: 850px) {
-  .nav-container {
-    width: calc(100% - 40px);
-  }
-
-  .desktop-nav,
-  .nav-cta {
-    display: none;
-  }
-
-  .navbar-inner {
-    height: 76px;
-  }
-
-  .mobile-menu-btn {
-    display: grid;
-    place-items: center;
-    border: none;
-    background: transparent;
-    color: var(--primary);
-    padding: 8px;
-  }
-
-  .mobile-nav {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 12px 20px 22px;
-    background: #ffffff;
-    box-shadow: 0 15px 25px rgba(16, 36, 58, 0.09);
-    overflow: hidden;
-  }
-
-  .mobile-nav-link {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .mobile-whatsapp {
-    margin-top: 17px;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 8px;
-    background: var(--primary);
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 14px;
-  }
-}
-
-/* =====================================
-   SMALL MOBILE
-===================================== */
-
-@media (max-width: 480px) {
-  .nav-container {
-    width: calc(100% - 30px);
-  }
-
-  .topbar {
-    font-size: 10px;
-  }
-
-  .topbar-inner {
-    min-height: 34px;
-  }
-
-  .topbar-inner p {
-    gap: 5px;
-  }
-
-  .topbar-inner a {
-    gap: 4px;
-  }
-
-  .brand-icon {
-    width: 42px;
-    height: 42px;
-  }
-
-  .brand-text strong {
-    font-size: 15px;
-  }
-
-  .brand-text small {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-  }
-}
-
-/* =====================================
    DESKTOP GENERATOR DROPDOWN
 ===================================== */
 
@@ -346,15 +275,12 @@
   border: 1px solid #e8edf2;
   border-radius: 10px;
   box-shadow: 0 15px 35px rgba(16, 36, 58, 0.13);
-
   display: flex;
   flex-direction: column;
-
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(10px);
-
   transition:
     opacity 0.25s ease,
     transform 0.25s ease,
@@ -443,15 +369,222 @@
 }
 
 /* =====================================
+   TABLET RESPONSIVENESS
+===================================== */
+
+@media (max-width: 1050px) {
+  .desktop-nav {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .brand-text strong {
+    font-size: 16px;
+  }
+
+  .nav-cta {
+    padding: 0 13px;
+  }
+
+  .topbar-arabic {
+    font-size: 15px;
+  }
+
+  .topbar-urdu {
+    font-size: 11px;
+  }
+}
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 850px) {
+  .nav-container {
+    width: calc(100% - 40px);
+  }
+
+  .desktop-nav,
+  .nav-cta {
+    display: none;
+  }
+
+  .navbar-inner {
+    height: 76px;
+  }
+
+  .mobile-menu-btn {
+    display: grid;
+    place-items: center;
+    border: none;
+    background: transparent;
+    color: var(--primary);
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 12px 20px 22px;
+    background: #ffffff;
+    box-shadow: 0 15px 25px rgba(16, 36, 58, 0.09);
+    overflow: hidden;
+  }
+
+  .mobile-nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .mobile-whatsapp {
+    margin-top: 17px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .nav-dropdown {
+    display: none;
+  }
+
+  /* Quranic topbar on mobile */
+
+  .topbar-inner {
+    width: calc(100% - 30px);
+    min-height: auto;
+    padding: 11px 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .topbar-verse {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .topbar-verse-content {
+    flex: 1;
+    align-items: center;
+  }
+
+  .topbar-arabic {
+    width: 100%;
+    font-size: 17px;
+    line-height: 1.9;
+    text-align: center;
+  }
+
+  .topbar-urdu {
+    width: 100%;
+    font-size: 12px;
+    line-height: 2;
+    text-align: center;
+  }
+
+  .topbar-reference {
+    font-size: 10px;
+  }
+
+  .topbar-quote-link {
+    min-height: 29px;
+    padding: 5px 12px;
+    border: 1px solid rgba(214, 168, 79, 0.35);
+    border-radius: 20px;
+    font-size: 11px;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+  .nav-container {
+    width: calc(100% - 30px);
+  }
+
+  .brand-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text strong {
+    font-size: 15px;
+  }
+
+  .brand-text small {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .topbar-inner {
+    padding: 10px 0;
+  }
+
+  .topbar-verse {
+    gap: 6px;
+  }
+
+  .topbar-verse-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .topbar-arabic {
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .topbar-urdu {
+    font-size: 11px;
+    line-height: 2.1;
+  }
+}
+
+/* =====================================
+   VERY SMALL MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+  .topbar-verse-icon {
+    display: none;
+  }
+
+  .topbar-arabic {
+    font-size: 14px;
+  }
+
+  .topbar-urdu {
+    font-size: 10px;
+  }
+}
+
+/* =====================================
    KEYBOARD ACCESSIBILITY
 ===================================== */
 
 .nav-dropdown:focus-within .nav-dropdown-menu {
   visibility: visible;
-}
-
-@media (max-width: 850px) {
-  .nav-dropdown {
-    display: none;
-  }
 }

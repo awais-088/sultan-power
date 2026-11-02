@@ -15,7 +15,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923010002987"; // Replace before launch
+const WHATSAPP_NUMBER = "923010002987";
 
 const navigation = [
   { name: "Home", href: "/#home" },
@@ -26,26 +26,11 @@ const navigation = [
 ];
 
 const generatorLinks = [
-  {
-    name: "All Generators",
-    href: "/generators",
-  },
-  {
-    name: "Cummins",
-    href: "/generators/cummins-generators",
-  },
-  {
-    name: "Perkins",
-    href: "/generators/perkins-generators",
-  },
-  {
-    name: "Isuzu",
-    href: "/generators/isuzu-generators",
-  },
-  {
-    name: "Yangdong",
-    href: "/generators/yangdong-generators",
-  },
+  { name: "All Generators", href: "/generators" },
+  { name: "Cummins", href: "/generators/cummins-generators" },
+  { name: "Perkins", href: "/generators/perkins-generators" },
+  { name: "Isuzu", href: "/generators/isuzu-generators" },
+  { name: "Yangdong", href: "/generators/yangdong-generators" },
 ];
 
 export default function Navbar() {
@@ -65,18 +50,38 @@ export default function Navbar() {
 
   return (
     <header className="site-header">
-      {/* TOP INFORMATION BAR */}
+      {/* QURANIC VERSE TOP BAR */}
 
       <div className="topbar">
         <div className="nav-container topbar-inner">
-          <p>
-            <Zap size={14} />
-            Reliable Power. Professional Engineering.
-          </p>
+          <div className="topbar-verse">
+            <span className="topbar-verse-icon">
+              <Zap size={15} />
+            </span>
 
-          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            <div className="topbar-verse-content">
+              <p className="topbar-arabic" lang="ar" dir="rtl">
+                فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ
+              </p>
+
+              <p className="topbar-urdu" lang="ur" dir="rtl">
+                پس تم مجھے یاد کرو، میں تمہیں یاد رکھوں گا، اور میرا شکر ادا کرو
+                اور ناشکری نہ کرو۔
+              </p>
+
+              <span className="topbar-reference">سورۃ البقرہ • آیت 152</span>
+            </div>
+          </div>
+
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="topbar-quote-link"
+          >
             <MessageCircle size={14} />
             Get a Quick Quote
+            <ArrowUpRight size={13} />
           </a>
         </div>
       </div>
