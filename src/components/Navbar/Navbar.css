@@ -116,44 +116,26 @@
    BRAND LOGO
 ===================================== */
 
+/* =====================================
+   BRAND LOGO IMAGE
+===================================== */
+
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
   flex-shrink: 0;
+  width: 235px;
   text-decoration: none;
 }
 
-.brand-icon {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: var(--primary);
-  color: var(--accent);
+.brand-logo-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 62px;
+  object-fit: contain;
+  object-position: left center;
 }
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.brand-text strong {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.6px;
-}
-
-.brand-text small {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--muted);
-  letter-spacing: 2px;
-}
-
 /* =====================================
    DESKTOP NAVIGATION
 ===================================== */
@@ -504,18 +486,12 @@
     height: 70px;
   }
 
-  .brand-icon {
-    width: 42px;
-    height: 42px;
+  .brand {
+    width: 190px;
   }
 
-  .brand-text strong {
-    font-size: 15px;
-  }
-
-  .brand-text small {
-    font-size: 9px;
-    letter-spacing: 1.5px;
+  .brand-logo-image {
+    max-height: 52px;
   }
 
   .topbar-inner {
@@ -563,8 +539,8 @@
     font-size: 10px;
   }
 
-  .brand-text strong {
-    font-size: 14px;
+  .brand {
+    width: 170px;
   }
 }
 

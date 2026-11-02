@@ -3,6 +3,7 @@
 import "./Navbar.css";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -50,7 +51,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* QURANIC WELCOME BANNER - SCROLLS AWAY */}
+      {/* QURANIC WELCOME BANNER */}
 
       <div className="topbar">
         <div className="nav-container topbar-inner">
@@ -80,22 +81,23 @@ export default function Navbar() {
       <header className="site-header">
         <nav className="navbar">
           <div className="nav-container navbar-inner">
-            {/* LOGO */}
+            {/* BUSINESS LOGO */}
 
             <Link
               href="/#home"
               className="brand"
               onClick={closeMenu}
-              aria-label="Sultan Brothers homepage"
+              aria-label="Sultan Brothers Power Engineering homepage"
             >
-              <span className="brand-icon">
-                <Zap size={27} fill="currentColor" />
-              </span>
-
-              <span className="brand-text">
-                <strong>SULTAN BROTHERS</strong>
-                <small>POWER ENGINEERING</small>
-              </span>
+              <Image
+                src="/images/sultan-brothers-logo.webp"
+                alt="Sultan Brothers Power Engineering"
+                width={700}
+                height={180}
+                priority
+                sizes="(max-width: 480px) 185px, 235px"
+                className="brand-logo-image"
+              />
             </Link>
 
             {/* DESKTOP NAVIGATION */}
